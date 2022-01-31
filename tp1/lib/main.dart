@@ -37,12 +37,6 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   List _items = [];
 
-  final List<bool> _likeSelect = [
-    true,
-    true,
-    true,
-  ];
-
   // Fetch content from the json file
   Future<void> readJson() async {
     final String response = await rootBundle.loadString('assets/list.json');
@@ -53,7 +47,11 @@ class _HomePageState extends State<HomePage> {
   }
 
   int _indexNavBar = 0;
-  final int _indixNavLike = 3;
+  final int _indexNavLike = 3;
+  final int _numberCategory = 3;
+
+  List<bool> _likeSelect = [];
+
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static const List<String> _labelOptions = ['Movie', 'Book', 'Art', 'Like'];
@@ -78,6 +76,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   void initState() {
+    _likeSelect = [for (var i = 0; i < _numberCategory; i++) true];
     readJson();
   }
 
@@ -90,10 +89,10 @@ class _HomePageState extends State<HomePage> {
       ),
       body: Column(
         children: [
-          (_indexNavBar == _indixNavLike)
+          (_indexNavBar == _indexNavLike)
               ? Row(
                   children: [
-                    for (var i = 0; i < _labelOptions.length - 1; i += 1)
+                    for (var i = 0; i < _numberCategory; i += 1)
                       Expanded(
                           child: TextButton(
                         style: TextButton.styleFrom(
@@ -122,14 +121,18 @@ class _HomePageState extends State<HomePage> {
                     padding: const EdgeInsets.all(8.0),
                     itemBuilder: (context, index) {
                       if (_indexNavBar == _items[index]["category"] ||
-                          (_indexNavBar == 3 &&
+                          (_indexNavBar == _indexNavLike &&
                               _items[index]["like"] &&
                               _likeSelect[_items[index]["category"]])) {
                         return Container(
                           height: max(80, queryData.size.height / 6),
                           width: queryData.size.width * 0.95,
                           padding: const EdgeInsets.all(10.0),
-                          color: Colors.grey[300],
+                          decoration: BoxDecoration(
+                            color: Colors.grey[300],
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(12)),
+                          ),
                           child: Row(
                             children: [
                               TextButton(
@@ -144,15 +147,18 @@ class _HomePageState extends State<HomePage> {
                                           builder: (context) =>
                                               ItemDetail(_items[index])));
                                 },
-                                child: Image.asset(
-                                  'assets/image/' + _items[index]['image'],
-                                  width: min(
-                                      max(60, queryData.size.height / 6 - 20),
-                                      max(10, queryData.size.width / 4 - 20)),
-                                  height: min(
-                                      max(60, queryData.size.height / 6 - 20),
-                                      max(10, queryData.size.width / 4 - 20)),
-                                  fit: BoxFit.fill,
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(20),
+                                  child: Image.asset(
+                                    'assets/image/' + _items[index]['image'],
+                                    width: min(
+                                        max(60, queryData.size.height / 6 - 20),
+                                        max(10, queryData.size.width / 4 - 20)),
+                                    height: min(
+                                        max(60, queryData.size.height / 6 - 20),
+                                        max(10, queryData.size.width / 4 - 20)),
+                                    fit: BoxFit.cover,
+                                  ),
                                 ),
                               ),
                               Expanded(
@@ -164,7 +170,10 @@ class _HomePageState extends State<HomePage> {
                                       style: const TextStyle(
                                           fontWeight: FontWeight.bold),
                                     ),
-                                    Center(child: Text(_items[index]['text'])),
+                                    Expanded(
+                                        child: Center(
+                                            child:
+                                                Text(_items[index]['text']))),
                                   ],
                                 ),
                               ),
@@ -200,7 +209,7 @@ class _HomePageState extends State<HomePage> {
                     },
                     separatorBuilder: (BuildContext context, int index) {
                       if (_indexNavBar == _items[index]["category"] ||
-                          (_indexNavBar == _indixNavLike &&
+                          (_indexNavBar == _indexNavLike &&
                               _items[index]["like"] &&
                               _likeSelect[_items[index]["category"]])) {
                         return const Divider();
@@ -233,7 +242,7 @@ class _HomePageState extends State<HomePage> {
 
 class ItemDetail extends StatelessWidget {
   final Map<String, dynamic> _inforamtion;
-  ItemDetail(this._inforamtion, {Key? key}) : super(key: key);
+  const ItemDetail(this._inforamtion, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -249,36 +258,105 @@ class ItemDetail extends StatelessWidget {
         padding: const EdgeInsets.all(8),
         children: [
           Container(
-            height: queryData.size.width - 16,
-            child: Image.asset(
-              'assets/image/' + _inforamtion['image'],
-              fit: BoxFit.fill,
-            ),
+              padding: const EdgeInsets.all(10.0),
+              decoration: BoxDecoration(
+                color: Colors.grey[300],
+                borderRadius: const BorderRadius.all(Radius.circular(12)),
+              ),
+              child: TextButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) =>
+                              PhotoDetail(_inforamtion['image'])));
+                },
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(30),
+                  child: Image.asset(
+                    'assets/image/' + _inforamtion['image'],
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              )),
+          const Divider(
+            height: 8,
           ),
           Container(
-            height: max(80, queryData.size.height / 6),
+            padding: const EdgeInsets.all(10.0),
+            decoration: BoxDecoration(
+              color: Colors.grey[300],
+              borderRadius: const BorderRadius.all(Radius.circular(12)),
+            ),
             child: Row(
               children: [
-                const Text('Title : ',
-                    textAlign: TextAlign.right,
-                    style: TextStyle(fontWeight: FontWeight.bold)),
-                Text(_inforamtion['title'])
+                Container(
+                  width: max(80, queryData.size.height / 6),
+                  child: const Text('Title : ',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(fontWeight: FontWeight.bold)),
+                ),
+                Expanded(
+                  child: Text(_inforamtion['title']),
+                ),
               ],
             ),
           ),
-          Container(
-            height: max(80, queryData.size.height / 6),
-            child: Row(
-              children: [
-                const Text('Description : ',
-                    textAlign: TextAlign.right,
-                    style: TextStyle(fontWeight: FontWeight.bold)),
-                Text(_inforamtion['text'])
-              ],
-            ),
-          )
+          (!_inforamtion['text']?.isEmpty)
+              ? const Divider(
+                  height: 8,
+                )
+              : Container(),
+          (!_inforamtion['text']?.isEmpty)
+              ? Container(
+                  padding: const EdgeInsets.all(10.0),
+                  decoration: BoxDecoration(
+                    color: Colors.grey[300],
+                    borderRadius: const BorderRadius.all(Radius.circular(12)),
+                  ),
+                  child: Row(
+                    children: [
+                      Container(
+                        width: max(80, queryData.size.height / 6),
+                        child: const Text('Description : ',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(fontWeight: FontWeight.bold)),
+                      ),
+                      Expanded(
+                        child: Text(_inforamtion['text']),
+                      ),
+                    ],
+                  ),
+                )
+              : Container(),
         ],
       ),
     );
+  }
+}
+
+class PhotoDetail extends StatelessWidget {
+  final String _name;
+  const PhotoDetail(this._name, {Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    MediaQueryData queryData = MediaQuery.of(context);
+    return Scaffold(
+        appBar: AppBar(
+          title: Text(
+            _name,
+            style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          ),
+        ),
+        body: Container(
+          color: Colors.black,
+          child: Image.asset(
+            'assets/image/' + _name,
+            width: queryData.size.height,
+            height: queryData.size.height,
+            fit: BoxFit.contain,
+          ),
+        ));
   }
 }
