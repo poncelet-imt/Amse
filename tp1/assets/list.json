@@ -4,49 +4,97 @@
         "id": "p0",
         "category": 0,
         "like": false,
-        "image": "test.png",
-        "title": "p0",
-        "text": "Description 0"
+        "image": "interstellar.jpg",
+        "title": "Interstellar",
+        "text": "When Earth becomes uninhabitable in the future, a farmer and ex-NASA pilot, Joseph Cooper, is tasked to pilot a spacecraft, along with a team of researchers, to find a new planet for humans."
     },
     {
         "id": "p1",
-        "category": 1,
+        "category": 0,
         "like": false,
-        "image": "test1.png",
-        "title": "p0",
-        "text": "Description 1"
+        "image": "pulp_fiction.jpg",
+        "title": "Pulp Fiction",
+        "text": "In the realm of underworld, a series of incidents intertwines the lives of two Los Angeles mobsters, a gangster's wife, a boxer and two small-time criminals."
     },
     {
         "id": "p2",
-        "category": 2,
+        "category": 0,
         "like": false,
-        "image": "test1.png",
-        "title": "p0",
-        "text": "Description 2"
+        "image": "the_jungle_book.jpg",
+        "title": "The Jungle Book",
+        "text": "Mowgli is a young boy who has been raised by wolves. When a man-eating tiger threatens his life, his animal family tries to convince him to leave the jungle and live in the human village."
     },
     {
         "id": "p3",
-        "category": 1,
-        "like": false,
-        "image": "test1.png",
-        "title": "p0",
-        "text": "Description 3"
+        "category": 0,
+        "like": true,
+        "image": "heat.jpg",
+        "title": "Heat",
+        "text": "Lieutenant Hanna, a detective, decides to catch a highly intelligent seasonal criminal who has vowed to pull off one last robbery before he retires for good."
     },
     {
         "id": "p4",
-        "category": 2,
-        "like": true,
-        "image": "test1.png",
-        "title": "p0",
-        "text": "Description 4"
+        "category": 1,
+        "like": false,
+        "image": "2000_leagues_under_the_seas.jpg",
+        "title": "Twenty Thousand Leagues Under the Seas",
+        "text": "Twenty Thousand Leagues Under the Seas is a classic science fiction adventure novel by French writer Jules Verne."
     },
     {
         "id": "p5",
         "category": 1,
+        "like": false,
+        "image": "achile_talon_a_un_gros_nez.jpg",
+        "title": "Ach!le Talon A Un Gros Nez",
+        "text": "Achille Talon is a Franco-Belgian comics series featuring an eponymous main character, created by Greg."
+    },
+    {
+        "id": "p6",
+        "category": 1,
         "like": true,
-        "image": "test.png",
-        "title": "p0",
-        "text": "Description 5"
+        "image": "la_marque_jaune.jpg",
+        "title": "Black And Mortimer la Marque Jaune ",
+        "text": "Blake and Mortimer is a Belgian comics series created by the Belgian writer and comics artist Edgar P. Jacobs. "
+    },
+    {
+        "id": "p7",
+        "category": 1,
+        "like": true,
+        "image": "berserk_tome_1.jpeg",
+        "title": "Berserk Tome 1",
+        "text": "Berserk is a Japanese manga series written and illustrated by Kentaro Miura. Set in a medieval Europe-inspired dark fantasy world, the story centers on the characters of Guts, a lone mercenary, and Griffith, the leader of a mercenary band called the 'Band of the Hawk'."
+    },
+    {
+        "id": "p8",
+        "category": 2,
+        "like": false,
+        "image": "wanderer_above_the_sea_of_fog.jpg",
+        "title": "Wanderer above the Sea of Fog",
+        "text": "Wanderer above the Sea of Fog, also known as Wanderer above the Mist or Mountaineer in a Misty Landscape, is an oil painting c. 1818 by the German Romantic artist Caspar David Friedrich. It has been considered one of the masterpieces of Romanticism and one of its most representative works."
+    },
+    {
+        "id": "p9",
+        "category": 2,
+        "like": true,
+        "image": "the_course_of_empire_destruction.jpg",
+        "title": "The Course of Empire - Destruction",
+        "text": "The Course of Empire - Destruction, executed by Thomas Cole in 1836, is an oil-on-canvas painting that portrays the capture of an imperial city by a barbarian horde."
+    },
+    {
+        "id": "p10",
+        "category": 2,
+        "like": false,
+        "image": "death_stranding_wallpaper.jpg",
+        "title": "Death Stranding",
+        "text": ""
+    },
+    {
+        "id": "p11",
+        "category": 2,
+        "like": false,
+        "image": "arata_isozaki_architecture_drawing.jpg",
+        "title": "Arata Isozaki Architecture Drawing",
+        "text": "Drawing of the Museum of Contemporary Art in Los Angeles by Arata Isozaki"
     }
     ]
 }
