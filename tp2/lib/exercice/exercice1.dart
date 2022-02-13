@@ -15,7 +15,7 @@ class Exercice1Page extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: Text("alpha_test"),
+        child: Image.asset('assets/image/Bear.png'),
       ),
     );
   }
