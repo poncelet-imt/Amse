@@ -70,7 +70,7 @@ class _Exercice2_1Page extends State<Exercice2_1Page> {
                   _rotationY = value;
                 });
               }),
-              rowWithSlider('RotateZ :', -math.pi / 2, math.pi / 2, () {
+              rowWithSlider('RotateZ :', -math.pi, math.pi, () {
                 return _rotationZ;
               }, (double value) {
                 setState(() {

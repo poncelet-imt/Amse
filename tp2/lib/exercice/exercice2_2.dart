@@ -122,7 +122,7 @@ class _Exercice2_2Page extends State<Exercice2_2Page>
                   _rotationY = value;
                 });
               }),
-              rowWithSlider('RotateZ :', -math.pi / 2, math.pi / 2, () {
+              rowWithSlider('RotateZ :', -math.pi, math.pi, () {
                 return _rotationZ;
               }, (double value) {
                 setState(() {
