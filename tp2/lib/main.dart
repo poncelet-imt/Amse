@@ -3,6 +3,7 @@ import 'package:tp2/exercice/exercice1.dart';
 
 import 'exercice/exercice2_1.dart';
 import 'exercice/exercice2_2.dart';
+import 'exercice/exercice4.dart';
 
 void main() {
   runApp(const MyApp());
@@ -93,7 +94,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ExerciceListItem(
             title: "Exercice 4",
             description: "Affichage d'une tuile (un morceau d'image)",
-            builderNewPage: (context) => Exercice1Page(),
+            builderNewPage: (context) => Exercice4Page(),
           ),
           ExerciceListItem(
             title: "Exercice 5.a",
