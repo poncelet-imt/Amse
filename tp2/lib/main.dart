@@ -4,6 +4,9 @@ import 'package:tp2/exercice/exercice1.dart';
 import 'exercice/exercice2_1.dart';
 import 'exercice/exercice2_2.dart';
 import 'exercice/exercice4.dart';
+import 'exercice/exercice5_1.dart';
+import 'exercice/exercice5_2.dart';
+import 'exercice/exercice5_3.dart';
 
 void main() {
   runApp(const MyApp());
@@ -100,19 +103,19 @@ class _MyHomePageState extends State<MyHomePage> {
             title: "Exercice 5.a",
             description:
                 "Génération du plateau de tuiles où les cases sont des containers",
-            builderNewPage: (context) => Exercice1Page(),
+            builderNewPage: (context) => Exercice5_1Page(),
           ),
           ExerciceListItem(
             title: "Exercice 5.b",
             description:
                 "Génération du plateau de tuiles où les cases sont des portions de l'image",
-            builderNewPage: (context) => Exercice1Page(),
+            builderNewPage: (context) => Exercice5_2Page(),
           ),
           ExerciceListItem(
             title: "Exercice 5.c",
             description:
                 "Génération du plateau à nombre de tuiles variables où les cases sont des portions de l'image",
-            builderNewPage: (context) => Exercice1Page(),
+            builderNewPage: (context) => Exercice5_3Page(),
           ),
           ExerciceListItem(
             title: "Exercice 6.a",
