@@ -7,6 +7,7 @@ import 'exercice/exercice4.dart';
 import 'exercice/exercice5_1.dart';
 import 'exercice/exercice5_2.dart';
 import 'exercice/exercice5_3.dart';
+import 'exercice/exercice6_1.dart';
 
 void main() {
   runApp(const MyApp());
@@ -120,7 +121,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ExerciceListItem(
             title: "Exercice 6.a",
             description: "Animation d'une tuile",
-            builderNewPage: (context) => Exercice1Page(),
+            builderNewPage: (context) => Exercice6_1Page(),
           ),
           ExerciceListItem(
             title: "Exercice 6.b",
