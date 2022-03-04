@@ -8,6 +8,7 @@ import 'exercice/exercice5_1.dart';
 import 'exercice/exercice5_2.dart';
 import 'exercice/exercice5_3.dart';
 import 'exercice/exercice6_1.dart';
+import 'exercice/exercice6_2.dart';
 
 void main() {
   runApp(const MyApp());
@@ -127,7 +128,7 @@ class _MyHomePageState extends State<MyHomePage> {
             title: "Exercice 6.b",
             description:
                 "Génération du plateau de tuiles où on peut échanger les tuiles",
-            builderNewPage: (context) => Exercice1Page(),
+            builderNewPage: (context) => Exercice6_2Page(),
           ),
           ExerciceListItem(
             title: "Exercice 7",
