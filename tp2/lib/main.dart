@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tp2/exercice/exercice1.dart';
+import 'package:tp2/taquin/mainGame.dart';
 
 import 'exercice/exercice2_1.dart';
 import 'exercice/exercice2_2.dart';
@@ -133,9 +134,21 @@ class _MyHomePageState extends State<MyHomePage> {
           ExerciceListItem(
             title: "Exercice 7",
             description: "Jeu de taquin",
-            builderNewPage: (context) => Exercice1Page(),
+            builderNewPage: (context) => MainGame(),
           ),
         ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => MainGame(),
+            ),
+          );
+        },
+        backgroundColor: Colors.green,
+        child: const Icon(Icons.play_arrow),
       ),
     );
   }
